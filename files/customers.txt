@@ -1,0 +1,3 @@
+customer1,Juan,12/05/2015,Av. Siempre Viva,12345678,joelsebastian@gmail.com;
+customer2,Juan,12/05/2015,Av. Siempre Viva,12345678,joelsebastian@gmail.com;
+customer3,Juan,12/05/2015,Av. Siempre Viva,12345678,joelsebastian@gmail.com;

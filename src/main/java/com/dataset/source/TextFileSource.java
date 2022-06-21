@@ -1,7 +1,6 @@
-package Files;
+package com.dataset.files;
 
-import Clases.Cliente;
-import org.junit.jupiter.api.Test;
+import com.dataset.clases.Cliente;
 
 import java.io.*;
 import java.text.ParseException;
@@ -26,7 +25,7 @@ public class TextFileSource {
         file = new File("/home/bitxanax/IdeaProjects/DataSet/files/customers.txt");
     }
 
-    public boolean add(Cliente customer) throws IOException {
+    public boolean addCustomer(Cliente customer) throws IOException {
         writer = new BufferedWriter(new FileWriter(file, true));
 
         if (file.exists()) {
@@ -39,7 +38,7 @@ public class TextFileSource {
     }
 
     //Pass empty string "", if you only want to update
-    public boolean remove(String id) throws IOException {
+    public boolean removeCustomer(String id) throws IOException {
         File temp = new File("/home/bitxanax/IdeaProjects/DataSet/files/temp.txt");
         boolean success = false;
 
@@ -64,7 +63,7 @@ public class TextFileSource {
     }
 
 
-    public boolean update(String id, Cliente newCustomer) throws IOException {
+    public boolean updateCustomer(String id, Cliente newCustomer) throws IOException {
         File temp = new File("/home/bitxanax/IdeaProjects/DataSet/files/temp.txt");
         boolean success = false;
 
@@ -104,31 +103,13 @@ public class TextFileSource {
         return customers;
     }
 
+    public boolean addCustomers(ArrayList<Cliente> customers) throws IOException {
+        boolean success = false;
+        for (Cliente customer : customers){
+            this.addCustomer(customer);
+            success = true;
+        }
 
-    @Test
-    public void removeTest() throws IOException, ParseException {
-        remove("1");
+        return success;
     }
-
-    @Test
-    public void addTest() throws IOException, ParseException {
-        Cliente customer = new Cliente(3, "Juan","12/05/2015",
-                "Av. Siempre Viva", "12345678",
-                "joelsebastian@gmail.com");
-        add(customer);
-    }
-
-    @Test
-    public void getCustomersTest() throws IOException, ParseException {
-        System.out.println("Clientes hallados:" + getCustomers().size());
-    }
-
-    @Test
-    public void updateCustomerTest() throws IOException, ParseException {
-        Cliente customer = new Cliente(5, "Juan","12/05/2015",
-                "Av. Siempre Viva", "12345678",
-                "joelsebastian@gmail.com");
-        update("1", customer);
-    }
-
 }

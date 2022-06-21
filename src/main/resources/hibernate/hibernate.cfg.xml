@@ -1,0 +1,11 @@
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://mysql{node_id}.{your_env_name}.{hoster_domain}:3306/jelasticDb</property>
+        <property name="hibernate.connection.username">jelastic</property>
+        <property name="hibernate.connection.password">jelastic</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        <mapping resource="/hibernate/hibernate.cfg.xml"/>
+    </session-factory>
+</hibernate-configuration>

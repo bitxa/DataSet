@@ -1,10 +1,8 @@
-package Files;
+package com.dataset.files;
 
-import Clases.Cliente;
-import org.junit.jupiter.api.Test;
+import com.dataset.clases.Cliente;
 
 import java.io.*;
-import java.text.ParseException;
 import java.util.ArrayList;
 
 /**
@@ -20,7 +18,7 @@ public class BinaryFileSource {
         customers = new ArrayList<>();
         file = new File("/home/bitxanax/IdeaProjects/DataSet/files/customers.data");
     }
-    public boolean add(Cliente customer) throws IOException, ClassNotFoundException {
+    public boolean addCustomer(Cliente customer) throws IOException, ClassNotFoundException {
         FileOutputStream writter = new FileOutputStream(file, true);
         ObjectOutputStream objectWriter = new ObjectOutputStream(writter);
         objectWriter.flush();
@@ -47,7 +45,7 @@ public class BinaryFileSource {
         return customers;
     }
 
-    public boolean remove(String id) throws IOException, ClassNotFoundException {
+    public boolean removeCustomer(String id) throws IOException, ClassNotFoundException {
         boolean success = false;
         this.getCustomers();
         FileOutputStream writer = new FileOutputStream(file);
@@ -68,7 +66,7 @@ public class BinaryFileSource {
         return success;
     }
 
-    public boolean update(String id, Cliente newCustomer) throws IOException, ClassNotFoundException {
+    public boolean updateCustomer(String id, Cliente newCustomer) throws IOException, ClassNotFoundException {
         boolean success = false;
         this.getCustomers();
         FileOutputStream writer = new FileOutputStream(file);
@@ -93,6 +91,14 @@ public class BinaryFileSource {
         return success;
     }
 
+    public boolean addCustomers(ArrayList<Cliente> customers) throws IOException, ClassNotFoundException {
+        boolean success = false;
+        for (Cliente customer : customers){
+            this.addCustomer(customer);
+            success = true;
+        }
 
+        return success;
+    }
 
 }

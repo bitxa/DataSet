@@ -1,8 +1,7 @@
-package Presentacion;
+package com.dataset.presentacion;
 
-import Clases.Cliente;
-import Files.TextFileSource;
-import Logica.TextFileLogic;
+import com.dataset.clases.Cliente;
+import com.dataset.logica.TextFileLogic;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.text.ParseException;

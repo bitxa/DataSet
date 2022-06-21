@@ -1,36 +1,43 @@
-package Logica;
+package com.dataset.logica;
 
-import Clases.Cliente;
-import Files.BinaryFileSource;
-import Files.TextFileSource;
-
+import com.dataset.clases.Cliente;
+import com.dataset.files.TextFileSource;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class BinaryFileLogic {
+/**
+ *
+ * @author Joel Romero
+ * date:   15/06/2022
+ */
+
+public class TextFileLogic {
+
     Cliente customer;
-    BinaryFileSource source;
+    TextFileSource source;
 
     ArrayList<Cliente> customers = new ArrayList<>();
 
-    public boolean addCustomer(Cliente customer) throws IOException, IOException, ClassNotFoundException {
+    public boolean addCustomer(Cliente customer) throws IOException, IOException {
         this.customer = customer;
         validateId();
-        return source.add(customer);
+        return source.addCustomer(customer);
     }
 
-    public boolean removeCustomer(String id) throws IOException, ClassNotFoundException {
-        return source.remove(id);
+    public boolean removeCustomer(String id) throws IOException {
+        this.customer = customer;
+        return source.removeCustomer(id);
     }
 
-    public boolean updateCustomer(String id, Cliente newCliente) throws IOException, ClassNotFoundException {
+    public boolean updateCustomer(String id, Cliente newCliente) throws IOException {
         this.customer = newCliente;
         validateId();
         return source.update("1", newCliente);
     }
 
-    public ArrayList<Cliente> getCustomers() throws IOException, ClassNotFoundException {
+    public ArrayList<Cliente> getCustomers() throws IOException, ClassNotFoundException, ParseException {
         return source.getCustomers();
     }
 

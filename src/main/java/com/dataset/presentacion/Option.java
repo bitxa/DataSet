@@ -1,4 +1,4 @@
-package Presentacion;
+package com.dataset.presentacion;
 
 import java.util.Scanner;
 
@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @author Joel Romero
  * date:   15/06/2022
  */
-public class DataBase {
+public class Option {
     public void start() {
         String option = "";
 

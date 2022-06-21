@@ -1,4 +1,4 @@
-package Clases;
+package com.dataset.clases;
 
 import java.io.Serializable;
 import java.text.ParseException;
@@ -12,15 +12,15 @@ import java.text.ParseException;
 public class Cliente implements Serializable {
 
     private int id;
-    private String nombre;
+    private String name;
     private String bornDate;
     private String address;
     private String phone;
     private String email;
 
-    public Cliente(int id, String nombre, String bornDate, String address, String phone, String email){
+    public Cliente(int id, String name, String bornDate, String address, String phone, String email){
         this.id = id;
-        this.nombre = nombre;
+        this.name = name;
         this.bornDate = bornDate;
         this.address = address;
         this.phone = phone;
@@ -37,7 +37,7 @@ public class Cliente implements Serializable {
         System.out.println(idString);
 
         this.id = Integer.parseInt(idString);
-        this.nombre = cliente[1];
+        this.name = cliente[1];
         this.bornDate = cliente[2];
         this.address = cliente[3];
         this.phone = cliente[4];
@@ -52,12 +52,12 @@ public class Cliente implements Serializable {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getBornDate() {
@@ -100,7 +100,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("customer%d,%s,%s,%s,%s,%s;\n", id, nombre, String.valueOf(bornDate),
+        return String.format("customer%d,%s,%s,%s,%s,%s;\n", id, name, String.valueOf(bornDate),
                 address, phone, email);
     }
 }

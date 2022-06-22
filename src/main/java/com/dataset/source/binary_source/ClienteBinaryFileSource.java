@@ -1,4 +1,4 @@
-package com.dataset.source;
+package com.dataset.source.binary_source;
 
 import com.dataset.clases.Cliente;
 
@@ -10,13 +10,14 @@ import java.util.ArrayList;
  * @author Joel Romero
  * date:   15/06/2022
  */
-public class BinaryFileSource {
+public class ClienteBinaryFileSource {
     ArrayList<Cliente> customers;
     File file;
+    String projectPath = System.getProperty("user.dir");
 
-    public BinaryFileSource() {
+    public ClienteBinaryFileSource() {
         customers = new ArrayList<>();
-        file = new File("/home/bitxanax/IdeaProjects/DataSet/source/customers.data");
+        file = new File(projectPath+"\\source\\customers.data");
     }
     public boolean addCustomer(Cliente customer) throws IOException, ClassNotFoundException {
         FileOutputStream writter = new FileOutputStream(file, true);

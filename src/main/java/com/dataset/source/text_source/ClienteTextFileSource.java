@@ -1,4 +1,4 @@
-package com.dataset.source;
+package com.dataset.source.text_source;
 
 import com.dataset.clases.Cliente;
 
@@ -13,16 +13,17 @@ import java.util.ArrayList;
  * date:   15/06/2022
  */
 
-public class TextFileSource {
+public class ClienteTextFileSource {
 
     ArrayList<Cliente> customers;
     BufferedWriter writer;
     BufferedReader reader;
     File file;
+    String projectPath = System.getProperty("user.dir");
 
-    public TextFileSource() {
+    public ClienteTextFileSource() {
         customers = new ArrayList<>();
-        file = new File("/home/bitxanax/IdeaProjects/DataSet/source/customers.txt");
+        file = new File(projectPath+"\\source\\customers.txt");
     }
 
     public boolean addCustomer(Cliente customer) throws IOException {
@@ -39,7 +40,7 @@ public class TextFileSource {
 
     //Pass empty string "", if you only want to update
     public boolean removeCustomer(String id) throws IOException {
-        File temp = new File("/home/bitxanax/IdeaProjects/DataSet/source/temp.txt");
+        File temp = new File(projectPath+"\\source\\tempCustomers.txt");
         boolean success = false;
 
         BufferedWriter writer = new BufferedWriter(new FileWriter(temp));

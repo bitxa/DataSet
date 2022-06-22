@@ -1,5 +1,6 @@
 package com.dataset.clases;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.text.ParseException;
 
@@ -9,13 +10,28 @@ import java.text.ParseException;
  * date:   15/06/2022
  */
 
+@Entity
+@Table  (name = "cliente")
 public class Cliente implements Serializable {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     private int id;
+
+    @Column(name = "customer_name", nullable = false)
     private String name;
+
+    @Column(name = "born_Date", nullable = false)
+
     private String bornDate;
+
+    @Column(name = "address", nullable = false)
     private String address;
+
+    @Column(name = "phone", nullable = false)
     private String phone;
+
+    @Column(name = "email", nullable = false)
     private String email;
 
     public Cliente(int id, String name, String bornDate, String address, String phone, String email){
@@ -27,7 +43,16 @@ public class Cliente implements Serializable {
         this.email = email;
     }
 
+    public Cliente(String name, String bornDate, String address, String phone, String email){
+        this.name = name;
+        this.bornDate = bornDate;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+    }
 
+
+    //Se convierte la linea de texto a un objeto Cliente
     public Cliente(String clienteString) throws ParseException {
         clienteString.replace(";", "");
 
@@ -42,8 +67,13 @@ public class Cliente implements Serializable {
         this.address = cliente[3];
         this.phone = cliente[4];
         this.email = cliente[5];
-        System.out.println("Cliente creado: " + this.toString());
+
     }
+
+    public Cliente() {
+
+    }
+
     public int getId() {
         return id;
     }
@@ -100,7 +130,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("customer%d,%s,%s,%s,%s,%s;\n", id, name, String.valueOf(bornDate),
+        return String.format("customer%d,%s,%s,%s,%s,%s;\n", id, name, bornDate,
                 address, phone, email);
     }
 }

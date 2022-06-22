@@ -1,7 +1,7 @@
 package com.dataset.logica;
 
 import com.dataset.clases.Cliente;
-import com.dataset.files.BinaryFileSource;
+import com.dataset.source.binary_source.ClienteBinaryFileSource;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class BinaryFileLogic {
     Cliente customer;
-    BinaryFileSource source;
+    ClienteBinaryFileSource source;
 
     ArrayList<Cliente> customers = new ArrayList<>();
 

@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name = "com.dataset.clases.Cliente" table = "CUSTOMERS">
+    <class name = "com.dataset.clases.Cliente" table = "cliente">
 
         <meta attribute = "class-description">
             Customer entity.
@@ -15,6 +15,7 @@
         </id>
 
         <property name = "name" column = "customer_name" type = "java.lang.String"/>
+        <property name = "phone" column = "phone" type = "java.lang.String"/>
         <property name = "bornDate" column = "born_date" type = "java.lang.String"/>
         <property name = "address" column = "address" type = "java.lang.String"/>
         <property name = "email" column = "email" type = "java.lang.String"/>

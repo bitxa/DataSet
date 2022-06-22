@@ -1,0 +1,23 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name = "com.dataset.clases.Factura" table = "factura">
+
+        <meta attribute = "class-description">
+            Factura entity.
+        </meta>
+
+        <id name = "facturaNum" type = "int" column = "factura_num">
+            <generator class="native"/>
+        </id>
+
+        <property name = "customerId" column = "customer_id" type = "int"/>
+        <property name = "date" column = "date" type = "java.lang.String"/>
+        <property name = "description" column = "description" type = "java.lang.String"/>
+
+
+    </class>
+</hibernate-mapping>

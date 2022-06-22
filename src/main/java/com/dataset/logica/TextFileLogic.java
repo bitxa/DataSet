@@ -1,7 +1,7 @@
 package com.dataset.logica;
 
 import com.dataset.clases.Cliente;
-import com.dataset.files.TextFileSource;
+import com.dataset.source.text_source.ClienteTextFileSource;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class TextFileLogic {
 
     Cliente customer;
-    TextFileSource source;
+    ClienteTextFileSource source;
 
     ArrayList<Cliente> customers = new ArrayList<>();
 
@@ -34,7 +34,7 @@ public class TextFileLogic {
     public boolean updateCustomer(String id, Cliente newCliente) throws IOException {
         this.customer = newCliente;
         validateId();
-        return source.update("1", newCliente);
+        return source.updateCustomer("1", newCliente);
     }
 
     public ArrayList<Cliente> getCustomers() throws IOException, ClassNotFoundException, ParseException {
